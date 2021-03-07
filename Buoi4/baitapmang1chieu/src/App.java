@@ -76,8 +76,6 @@ public class App {
             return n;
         } else {
             for (int i = n; i > k; i--) {
-                // dung nguoc lai: i=k, i<=n,i++?
-                // vi tri thu 5 se di dau?
                 arr[i] = arr[i - 1];
             }
             arr[k] = x;
@@ -90,7 +88,6 @@ public class App {
         }
         else {
             for (int i=k;i<n;i++){
-                // khong hieu cach chay
                 arr[i]=arr[i+1];
             }
         }
