@@ -20,9 +20,13 @@ public class Person {
     public void input(){
               
     Scanner scanner = new Scanner(System.in);  
+    System.out.println("\nNhap ten: ");
     name = scanner.nextLine();
+    System.out.println("Nhap gioi tinh: ");
     gender = scanner.nextLine();
+    System.out.println("Nhap dia chi: ");
     address = scanner.nextLine();
+    System.out.println("Nhap ngay sinh: ");
     dateOfBirth = scanner.nextLine();
 
     scanner.close();

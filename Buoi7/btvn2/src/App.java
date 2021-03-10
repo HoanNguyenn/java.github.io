@@ -9,7 +9,7 @@ public class App {
 
        for (int i=0;i<n;i++){
            student[i]= new Student();
-           System.out.printf("Nhap tong tin sinh vien thu %d", i);
+           System.out.printf("Nhap tong tin sinh vien thu %d ", i+1);
            student[i].input();
        }
 
@@ -17,6 +17,8 @@ public class App {
            System.out.printf("Thong tin cua sinh vien thu %d ", i);
            System.out.println(student[i].toString());
        }
+
+       scanner.close();
 
     }
 }
