@@ -2,25 +2,25 @@ import java.util.Scanner;
 
 public class Student extends Person{
 
-    private long id;
+    private int id;
     private float gpa;
     private String email;
 
     public Student(){   
     }
 
-    public Student(String name, String gender, String address, String dateofbirth, long id, float gpa, String email) {
+    public Student(String name, String gender, String address, String dateofbirth, int id, float gpa, String email) {
         super(name, gender, address, dateofbirth);
         this.id = id;
         this.gpa = gpa;
         this.email = email;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -46,16 +46,13 @@ public class Student extends Person{
         super.input();
         
         System.out.println("Nhap ma sinh vien: ");
-        this.id = scanner.nextLong();
+        this.id = scanner.nextInt();
         System.out.println("Nhap diem trung binh: ");
-        this.gpa = scanner.nextFloat();
+        this.gpa = scanner.nextFloat(); 
+        scanner.nextLine();
         System.out.println("Nhap email: ");
         this.email = scanner.nextLine();
-
-        scanner.close();
-   
     }
-
     public String toString(){
         super.toString();
         return "Ma sinh vien: " + this.id + "; Diem trung binh: " + this.gpa + "; Email: " + this.email;

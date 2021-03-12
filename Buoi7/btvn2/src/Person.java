@@ -29,7 +29,6 @@ public class Person {
     System.out.println("Nhap ngay sinh: ");
     dateOfBirth = scanner.nextLine();
 
-    scanner.close();
     }
 
     public String toString(){
