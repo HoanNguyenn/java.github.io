@@ -5,6 +5,12 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap so dien thoai can dien: ");
         int n = scanner.nextInt();
+        try {
+            if (n<0) throw new Exception("Nhap sai");
+        } catch (Exception e) {
+            System.out.println("Nhap lai: ");
+            n = scanner.nextInt();
+        }
 
         PhoneBook [] phone = new PhoneBook[n];
 

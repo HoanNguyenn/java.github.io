@@ -8,4 +8,5 @@ public class App {
         HinhChuNhat hinhChuNhat = new HinhChuNhat(3,4);
         System.out.println("Duong cheo hinh chu nhat: " + hinhChuNhat.DuongCheo());
     }
+    // scanner sau do gan gia tri vao cac flieds da goi truoc do 
 }

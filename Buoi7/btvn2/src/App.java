@@ -2,8 +2,17 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
        Scanner scanner = new Scanner(System.in);
-       System.out.println("Nhap so sinh vien: ");
+       System.out.println("nhap n: ");
        int n = scanner.nextInt();
+       
+       try{
+           if(n < 0) throw new Exception("Loi!!!");
+       } 
+       catch (Exception e) {
+           System.out.println("nhap lai: ");
+           n = scanner.nextInt();
+
+       }
 
        Person [] student = new Person[n];
 
@@ -21,4 +30,5 @@ public class App {
        scanner.close();
 
     }
+
 }
