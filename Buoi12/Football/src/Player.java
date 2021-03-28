@@ -6,6 +6,7 @@ public class Player {
     public Player(String name, int num, Position position) {
         this.name = name;
         this.num = num;
+        this.position = position;
     }
 
     public String getName() {

@@ -1,11 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Team {
+    ArrayList<Player> listPlayer;
+    ArrayList<Player> list;
+    ArrayList<Player> selectedTeam;
+
     public List<Player> getAllPlayers() {
-        ArrayList<Player> listPlayer = new ArrayList<>();
+        listPlayer = new ArrayList<>();
         listPlayer.add(new Player("Marc-Andre ter Stegen", 1, Position.GK));
         listPlayer.add(new Player("Sergino Dest", 2, Position.DF));
         listPlayer.add(new Player("Gerard Pique", 3, Position.DF));
@@ -32,8 +35,9 @@ public class Team {
     };
 
     public List<Player> buildTeam() {
+        System.out.println("List player: ");
 
-        ArrayList<Player> list = new ArrayList<Player>();
+        list = new ArrayList<Player>();
 
         int numGK = 0;
         int numDF = 0;
@@ -42,56 +46,89 @@ public class Team {
 
         Random random = new Random();
 
-        boolean runnable = true;
+        
+            while (numGK < 1) {
+                int randomGK = random.nextInt(22);
 
-        while (runnable){
-        while(numGK<1) {
-        int randomGK = random.nextInt(22);
-            if (listPlayer.get(randomGK).getPosition().equals(Position.GK)) {
+                if (listPlayer.get(randomGK).getPosition().equals(Position.GK)) {
                     list.add(listPlayer.get(randomGK));
                     numGK++;
                 }
             }
-        while(numDF<4) {
-        int randomDF = random.nextInt(22);
-            if(listPlayer.get(randomDF).getPosition().equals(Position.DF) && !list.contains(listPlayer.get(randomDF))){
+            while (numDF < 4) {
+                int randomDF = random.nextInt(22);
+                if (listPlayer.get(randomDF).getPosition().equals(Position.DF) && !list.contains(listPlayer.get(randomDF))) {
                     list.add(listPlayer.get(randomDF));
-   
+
                     numDF++;
                 }
             }
-        while(numMF<4) {
-        int randomMF = random.nextInt(22);
-            if (listPlayer.get(randomMF).getPosition().equals(Position.MF) && !list.contains(listPlayer.get(randomMF))) {
+            while (numMF < 4) {
+                int randomMF = random.nextInt(22);
+                if (listPlayer.get(randomMF).getPosition().equals(Position.MF)
+                        && !list.contains(listPlayer.get(randomMF))) {
                     list.add(listPlayer.get(randomMF));
                     numMF++;
                 }
             }
-        while(numFW<2){
-        int randomFW = random.nextInt(22); 
-            if (listPlayer.get(randomFW).getPosition().equals(Position.FW) && !list.contains(listPlayer.get(randomFW))){
-                    list.add(listPlayer.get(numFW));
+            while (numFW < 2) {
+                int randomFW = random.nextInt(22);
+                if (listPlayer.get(randomFW).getPosition().equals(Position.FW)
+                        && !list.contains(listPlayer.get(randomFW))) {
+                    list.add(listPlayer.get(randomFW));
                     numFW++;
                 }
             }
 
-            System.out.println("\nDo you want to see another option? Type Y or N: ");
-            Scanner scanner = new Scanner(System.in);
-            String answer = scanner.nextLine();
-            if (answer.equals("Y")) {
-                runnable = true;
-            } else {
-                runnable = false;
-            }
-        }
-        
-        for (int i =0; i<list.size();i++){
-            System.out.println(list);}
+            System.out.println(list);
 
-        return list;
+        return null;
 
     }
 
+    public List<Player> buildTeam(int defender, int midfielder, int forwarder ) {
+        selectedTeam = new ArrayList<>();
+
+        int defenderSize = 0;
+        int midfielderSize = 0;
+        int forwarderSize = 0;
+        int goalkeeperSize = 0;
+
+        Random random = new Random();
+
+            while (goalkeeperSize < 1) {
+                int rdGK = random.nextInt(22);
+
+                if (listPlayer.get(rdGK).getPosition().equals(Position.GK)) {
+                    selectedTeam.add(listPlayer.get(rdGK));
+                    goalkeeperSize++;
+                }
+            }
+            while (defenderSize < defender) {
+                int rdDF = random.nextInt(22);
+                if (listPlayer.get(rdDF).getPosition().equals(Position.DF) && !selectedTeam.contains(listPlayer.get(rdDF))) {
+                    selectedTeam.add(listPlayer.get(rdDF));
+                    defenderSize++;
+                }
+            }
+            while (midfielderSize < midfielder) {
+                int rdMF = random.nextInt(22);
+                if (listPlayer.get(rdMF).getPosition().equals(Position.MF)
+                        && !selectedTeam.contains(listPlayer.get(rdMF))) {
+                    selectedTeam.add(listPlayer.get(rdMF));
+                    midfielderSize++;
+                }
+            }
+            while (forwarderSize < forwarder) {
+                int rdFW = random.nextInt(22);
+                if (listPlayer.get(rdFW).getPosition().equals(Position.FW)
+                        && !selectedTeam.contains(listPlayer.get(rdFW))) {
+                    selectedTeam.add(listPlayer.get(rdFW));
+                    forwarderSize++;
+                }
+            }
+
+            System.out.println(selectedTeam);
+            return null;
 }
-
-
+}
